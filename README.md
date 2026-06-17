@@ -24,20 +24,35 @@ Indexed Storage → RAG Query Interface → Dashboard
 # System Architecture
 
 EventBridge (scheduled trigger)
+
        ↓
+       
 Lambda — Fetch Filings (regulatory API)
+
        ↓
+       
 S3 (raw documents)
+
        ↓
+       
 Lambda — Process & Embed
+
        ↓
+       
 RDS / pgvector (embeddings)  +  DynamoDB (risk tags)
+
        ↓
+       
 ML Classifier (risk level: Low / Medium / High / Action Required)
+
        ↓
+       
 FastAPI — RAG Query Endpoint
+
        ↓
+       
 Dashboard (Streamlit / React)
+
 
 ---
 # Technology Stack
